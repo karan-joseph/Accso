@@ -1,0 +1,176 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY */
+body {
+  background-color: #f6f6f6;
+  color: #111;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: #000;
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar nav a {
+  color: #fff;
+  margin-left: 24px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar nav a:hover {
+  opacity: 0.7;
+}
+
+/* HERO */
+.hero {
+  height: 60vh;
+  background: linear-gradient(120deg, #000, #222);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.hero p {
+  margin: 10px 0 20px;
+}
+
+.hero button {
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+}
+
+/* COLLECTION HERO */
+.collection-hero {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.collection-hero h1 {
+  font-size: 36px;
+}
+
+.collection-hero p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background: #fff;
+}
+
+.filters select {
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.product-card h3 {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.price {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.product-card button {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.product-card button:hover {
+  opacity: 0.85;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar nav {
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
