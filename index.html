@@ -5,18 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MOBI GADGETS</title>
   <link rel="stylesheet" href="mobi.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">MOBI GADGETS</div>
-  <nav>
+  <nav class="nav-right">
+  <div class="navbar-links">
     <a href="mobi-phone.html">Mobile Skins</a>
     <a href="mobi-laptop.html">Laptop Skins</a>
     <a href="#">Accessories</a>
     <a href="#">Contact</a>
-  </nav>
+  </div>
+
+  <div class="navbar-menu-icon" onclick="shownavbar()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
 </header>
+  <!--side navbar-->
+  <nav>
+  <div class="side_navbar">
+    <p style="text-align: right;" onclick="closenavbar()"><i class="fa-solid fa-xmark"></i></p>
+    <p class="side_navbar-link"><a href="mobi-phone.html">Mobile Skins</a></p>
+    <p class="side_navbar-link"><a href="mobi-laptop.html">Laptop Skins</a></p>
+    <p class="side_navbar-link"><a href="#">Accessories</a></p>
+    <p class="side_navbar-link"><a href="#">Contact</a></p>
+  </div>
+  </nav>
+
 
 <section class="hero">
     <img src="images.jpg" alt="">
