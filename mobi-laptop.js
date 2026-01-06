@@ -1,4 +1,4 @@
-Add to Cart → alert
+
 // selecting side_navbar
 var sidenavbar = document.querySelector(".side_navbar");
 
