@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial,Helvetica, sans-serif;
+}
+
+body {
+  background: #f8f8f8;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: #383737;
+  color: #fff;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-links a{
+  text-decoration: none;
+  color: white;
+}
+.navbar-menu-icon {
+    display: none;
+}
+/*side_navbar*/
+.side_navbar{
+    background-color:rgb(1, 1, 24);
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    top: 0%;
+    left: -50%;
+    border-radius: 10px;
+    color: white;
+    transition: 0.4s;
+}
+.side_navbar-link{
+    margin-bottom: 20px;
+}
+.side_navbar-link a{
+    text-decoration: none;
+    color: white;
+}
+.side_navbar-link a:hover{
+    text-decoration: underline;
+}
+/* LEFT */
+.left {
+  width: 40%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.product-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+
+/* RIGHT */
+.right {
+  width: 60%;
+}
+
+.brand {
+  font-size: 14px;
+  color: gray;
+}
+
+.choose-btn {
+  background: black;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: black;
+}
+
+.small-btn {
+  padding: 6px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.small-btn.active {
+  border: 2px solid black;
+}
+
+/* Bottom Designs */
+.designs {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.designs img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.designs img:hover {
+  border: 2px solid black;
+}
+
+ 
+
+
+/* Footer */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+/* media */
+@media screen and (max-width: 600px) {
+    .navbar-menu-icon {
+        display: block;
+    }
+    .navbar-links{
+        display: none;
+    }
+
+  /* product layout vertical */
+  .product-preview {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* main image center */
+  .left {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .phone-preview {
+    width: 280px;
+  }
+
+  /* details below image */
+  .right {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  /* designs center align */
+  .designs {
+    justify-content: center;
+  }
+}
