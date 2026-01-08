@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MOBI GADGETS</title>
+  <link rel="stylesheet" href="samsung_skin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">MOBI GADGETS</div>
+  <nav class="nav-right">
+  <div class="navbar-links">
+  <a href="../../index.html">Home |</a>
+<a href="../mobi-phone.html">Mobile Skins |</a>
+<a href="../../laptop/mobi-laptop.html">Laptop Skins |</a>
+<a href="#">Contact</a>
+
+  </div>
+
+  <div class="navbar-menu-icon" onclick="shownavbar()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+</header>
+  <!--side navbar-->
+  <nav>
+  <div class="side_navbar">
+    <p style="text-align: right;" onclick="closenavbar()"><i class="fa-solid fa-xmark"></i></p>
+    <p class="side_navbar-link"><a href="../../index.html">Home</a></p>
+    <p class="side_navbar-link"><a href="../mobi-phone.html">Mobile Skins</a></p>
+    <p class="side_navbar-link"><a href="../../laptop/mobi-laptop.html">Laptop Skins</a></p>
+    <p class="side_navbar-link"><a href="#">Contact</a></p>
+
+  </div>
+  </nav>
+  <div class="container">
+<div class="product-preview">
+  <!-- LEFT : Phone Preview -->
+  <div class="left">
+    <img id="mainPhone" src="s-25_1.jpg" class="phone-preview">
+  </div>
+
+  <!-- RIGHT : Product Details -->
+  <div class="right">
+    <p class="brand">Samsung</p>
+    <h1>Samsung Galaxy S25 Skins & Wraps</h1>
+
+    <button class="choose-btn">Choose your Design Below</button>
+
+
+    <div class="section">
+      <h4>Color : Abstract Vision</h4>
+
+      <!-- Bottom Design Selector -->
+      <div class="designs">
+        <img src="s-25_2.jpg" onclick="changeImage(this)">
+        <img src="s-25_3.jpg" onclick="changeImage(this)">
+        <img src="s-25_4.jpg" onclick="changeImage(this)">
+        <img src="s-25_5.jpg" onclick="changeImage(this)">
+        <img src="s-25_1.jpg" onclick="changeImage(this)">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<footer>
+  <p>© 2026 MOBI GADGETS. All rights reserved.</p>
+</footer>
+
+
+<script src="samsung_skin.js"></script>
+</body>
+</html>
