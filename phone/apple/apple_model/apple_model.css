@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial,Helvetica, sans-serif;
+}
+
+body {
+  background: #f8f8f8;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: #383737;
+  color: #fff;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-links a{
+  text-decoration: none;
+  color: white;
+}
+.navbar-menu-icon {
+    display: none;
+}
+/*side_navbar*/
+.side_navbar{
+    background-color:rgb(1, 1, 24);
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    top: 0%;
+    left: -50%;
+    border-radius: 10px;
+    color: white;
+    transition: 0.4s;
+    z-index: 10;
+}
+.side_navbar-link{
+    margin-bottom: 20px;
+}
+.side_navbar-link a{
+    text-decoration: none;
+    color: white;
+}
+.side_navbar-link a:hover{
+    text-decoration: underline;
+}
+/* Main Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  z-index: 1;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #8c8c8c;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  text-decoration: none;
+}
+
+.card.dark {
+  background: #000;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.card span {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Hover Effect */
+.card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+
+/* Footer */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+/* media */
+@media screen and (max-width: 600px) {
+    .navbar-menu-icon {
+        display: block;
+    }
+    .navbar-links{
+        display: none;
+    }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+}
