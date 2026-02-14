@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Skin Customizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ACCSO</div>
+        <div class="cart-summary" id="cart-summary">
+            Cart: <span id="cart-count">0</span> items
+        </div>
+    </header>
+
+    <main class="customizer-container">
+        <!-- Left: Static Product Preview -->
+        <section class="preview-area">
+            <div class="phone-container">
+                <!-- Bottom Layer: The Skin Pattern -->
+                <div class="skin-layer" id="skin-layer"></div>
+                
+                <img src="assets/apple_cust.png" alt="Phone Model" class="phone-frame">
+                <div class="skin-overlay" id="skin-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Right: Controls -->
+        <section class="controls-area">
+            <h1>Customize Your Skin</h1>
+            <p class="subtitle">Select a design to instantly apply and add to cart.</p>
+
+            <div class="skin-selector" id="skin-selector">
+                <!-- Thumbnails injected by JS -->
+            </div>
+
+            <button id="add-to-cart-btn" class="add-to-cart-btn" disabled>Add to Cart</button>
+
+            <div class="cart-notification" id="cart-notification">
+                Added to Cart!
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #ffffff;
+    --accent-color: #007bff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.cart-summary {
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--card-bg);
+}
+
+.customizer-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    /* Desktop: side by side */
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 60px;
+}
+
+/* Preview Area */
+.preview-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.phone-container {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    /* Strict boundaries: We use a mask or clip-path to ensure the skin doesn't bleed */
+    /* Assuming standard rounded rectangle phone shape for now */
+    border-radius: 44px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    background: white;
+    /* Ensure base is opaque if image has transp */
+    overflow: hidden;
+    /* CRITICAL: Clips content strictly to this box */
+    /* Mask the content to the exact phone shape */
+    -webkit-clip-path: inset(0 round 44px);
+    clip-path: inset(0 round 44px);
+}
+
+.phone-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    /* Frame on top */
+    pointer-events: none;
+    /* Use multiply blend mode to darken frame areas while letting skin show through transparent regions */
+    mix-blend-mode: multiply;
+    /* Ensure frame respects parent's clip-path */
+}
+
+.skin-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    /* Skin behind frame (logically) but visual order depends on blend mode */
+    /* No blend mode here, just normal image */
+    transition: background-image 0.3s ease;
+    /* Ensure design is strictly contained within phone boundaries */
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0%, black 0%);
+    mask-image: radial-gradient(circle at center, transparent 0%, black 0%);
+}
+
+/* Button & Controls */
+.add-to-cart-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.add-to-cart-btn.active {
+    opacity: 1;
+    pointer-events: all;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+}
+
+
+/* Controls Area */
+.controls-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.skin-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+.skin-option {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.skin-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.skin-option.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+.cart-notification {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.cart-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skin-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    /* Solid white base ensures no transparency artifacts */
+    z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .customizer-container {
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 0;
+    }
+
+    .phone-container {
+        height: 500px;
+        width: 250px;
+        /* Maintain strict clipping at responsive size */
+        -webkit-clip-path: inset(0 round 40px);
+        clip-path: inset(0 round 40px);
+    }
+
+    .controls-area {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .skin-selector {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
