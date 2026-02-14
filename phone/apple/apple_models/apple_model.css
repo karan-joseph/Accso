@@ -30,6 +30,7 @@
     border-radius: 10px;
     color: white;
     transition: 0.4s;
+    z-index: 5;
 }
 .side_navbar-link{
     margin-bottom: 20px;
@@ -52,6 +53,7 @@
   align-items: center;
   gap: 10px;
   position: relative;
+  z-index: 1;
 }
 .model{
   display: flex;
@@ -62,17 +64,22 @@
   
 }
 .model input{
-  padding: 15px;
+  padding: 10px;
   width: 100%;
-  max-width: 700px;   /* Ithu dhan size control */
+  max-width: 900px;   /* Ithu dhan size control */
   border-radius: 8px;
   border: 1px solid black;
-  font-size: 18px;    /* Text perusa */
+  font-size: 15px;    /* Text perusa */
+  position: relative;
 }
 
 .model i{
   color: #333;
   cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .models_name{
 display: grid;
@@ -82,7 +89,7 @@ display: grid;
 
 .models_name div{
   background-color: rgb(241, 232, 232);
-  padding: 20px;
+  padding: 8px;
   border-radius: 10px;
   text-align: center;
   box-shadow: rgba(30, 30, 107, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -114,14 +121,14 @@ footer {
 
   .model{
       flex-direction: column;
-      gap: 15px;
-      padding: 0 15px;
+      gap:0px;
+      padding:9px;
   }
 
   .model input{
     max-width: 100%;
     font-size: 20px;
-    padding: 18px;
+    padding: 10px;
   }
 
   .models_name{
@@ -129,6 +136,6 @@ footer {
   }
 
   .models_name div{
-      width: 100%;
+      width: 90%;
   }
 }
