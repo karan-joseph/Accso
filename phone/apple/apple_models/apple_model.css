@@ -70,16 +70,14 @@
   font-size: 18px;    /* Text perusa */
 }
 
-}
 .model i{
   color: #333;
   cursor: pointer;
 }
 .models_name{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;              /* 👈 Ithu dhan gap */
-  padding: 20px;
+display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
 }
 
 .models_name div{
@@ -127,8 +125,7 @@ footer {
   }
 
   .models_name{
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      padding: 0 15px;
+      grid-template-columns: repeat(3, 1fr);
   }
 
   .models_name div{
