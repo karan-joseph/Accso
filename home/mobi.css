@@ -161,10 +161,29 @@ footer {
     .navbar-links{
         display: none;
     }
-     .footer-container {
+    .footer-container {
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-logo {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
-    
+
+  .footer-logo h2 {
+    margin: 0;
   }
+
+  .footer-logo img {
+    width: 120px;
+    height: auto;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+}
