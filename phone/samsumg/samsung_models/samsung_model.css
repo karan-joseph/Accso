@@ -88,7 +88,7 @@ display: grid;
 }
 
 .models_name div{
-  background-color: rgb(241, 232, 232);
+  background-color: white;
   padding: 8px;
   border-radius: 10px;
   text-align: center;

@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mobile Skins</title>
-  <link rel="stylesheet" href="mobi-phone.css" />
+  <title>MOBI GADGETS</title>
+  <link rel="stylesheet" href="1+skin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
@@ -13,67 +14,60 @@
   <div class="logo">MOBI GADGETS</div>
   <nav class="nav-right">
   <div class="navbar-links">
-    <a href="../index.html">Home |</a>
-    <a href="phone/mobi-phone.html">Mobile Skins |</a>
-    <a href="../laptop/mobi-laptop.html">Laptop Skins | </a>
-    <a href="#">Contact</a>
-    </div>
-    <div class="navbar-menu-icon" onclick="shownavbar()">
+  <a href="../../../index.html">Home |</a>
+<a href="../../../phone/mobi-phone.html">Mobile Skins |</a>
+<a href="../../../laptop/mobi-laptop.html">Laptop Skins |</a>
+<a href="#">Contact</a>
+
+  </div>
+
+  <div class="navbar-menu-icon" onclick="shownavbar()">
     <i class="fa-solid fa-bars"></i>
   </div>
-  </nav>
+</nav>
 </header>
- <!--side navbar-->
-<nav>
+  <!--side navbar-->
+  <nav>
   <div class="side_navbar">
     <p style="text-align: right;" onclick="closenavbar()"><i class="fa-solid fa-xmark"></i></p>
-    <p class="side_navbar-link"><a href="../index.html">Home</a>
-    <p class="side_navbar-link"><a href="phone/mobi-phone.html">Mobile Skins</a>
-    <p class="side_navbar-link"><a href="../laptop/mobi-laptop.html">Laptop Skins</a>
+    <p class="side_navbar-link"><a href="../../../index.html">Home</a></p>
+    <p class="side_navbar-link"><a href="../../../phone/mobi-phone.html">Mobile Skins</a></p>
+    <p class="side_navbar-link"><a href="../../../laptop/mobi-laptop.html">Laptop Skins</a></p>
     <p class="side_navbar-link"><a href="#">Contact</a></p>
+
   </div>
   </nav>
-
-<section class="collection-hero">
-  <h1>Mobile Skins</h1>
-  <p>Premium skins for iPhone, Samsung, OnePlus & more</p>
-</section>
-<section class="filters">
-  <select>
-    <option>All Brands</option>
-    <option>iPhone</option>
-    <option>Samsung</option>
-    <option>OnePlus</option>
-    <option>Pixel</option>
-  </select>
-</section>
-
-<section class="products">
-  <div class="product-grid">
-
-    <div class="product-card">
-      <a href="../phone/apple/apple_models/apple_model.html"><img src="i phone.webp" alt="Skin"></a>
-      <h3>iPhone Skin</h3>
-      
-    </div>
-
-    <div class="product-card">
-      <a href="../phone/samsumg/samsung_models/samsung_model.html"><img src="samsumg.jpg" alt="Skin"></a>
-      <h3>Samsung Skin</h3>
-    </div>
-
-    <div class="product-card">
-      <a href="../phone/oneplus/1+model/1+_model.html"><img src="oneplus.webp" alt="Skin"></a>
-      <h3>OnePlus Skin</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="google-pixle.jpg" alt="Skin">
-      <h3>Pixel Skin</h3>
-    </div>
-
+  <div class="container">
+<div class="product-preview">
+  <!-- LEFT : Phone Preview -->
+  <div class="left">
+    <img id="mainPhone" src="17-pro-max-d1.webp" class="phone-preview">
   </div>
-</section>
+
+  <!-- RIGHT : Product Details -->
+  <div class="right">
+    <p class="brand">Apple</p>
+    <h1>iPhone 17 Pro Max Skins & Wraps</h1>
+
+    <button class="choose-btn">Choose your Design Below</button>
+
+
+    <div class="section">
+      <h4>Color : Abstract Vision</h4>
+
+      <!-- Bottom Design Selector -->
+      <div class="designs">
+        <img src="17-pro-max-d2.webp" onclick="changeImage(this)">
+        <img src="17-pro-max-d3.webp" onclick="changeImage(this)">
+        <img src="17-pro-max-d4.webp" onclick="changeImage(this)">
+        <img src="17-pro-max-d5.webp" onclick="changeImage(this)">
+        <img src="17-pro-max-d1.webp" onclick="changeImage(this)">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 
@@ -83,7 +77,7 @@
     <div class="footer-logo">
       <h2>MOBI GADGETS</h2>
       <!-- image use panna na -->
-      <img src="../home/logo.jpeg" alt="logo" width="150">
+      <img src="../../../home/logo.jpeg" alt="logo" width="150">
     </div>
 
     <div class="contact-info">
@@ -126,6 +120,7 @@
   <p class="copyright">© 2026 MOBI GADGETS. All rights reserved.</p>
 </footer>
 
-<script src="mobi-phone.js"></script>
+
+<script src="1+skin.js"></script>
 </body>
 </html>
