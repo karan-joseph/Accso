@@ -13,3 +13,24 @@ function shownavbar() {
 function closenavbar() {
     sidenavbar.style.left = "-50%";
 }
+
+var searchInput = document.getElementById("searchInput");
+var modelList = document.querySelectorAll(".product-grid div");
+
+searchInput.addEventListener("keyup", function () {
+
+    var enteredValue = searchInput.value.toUpperCase();
+
+    modelList.forEach(function(item) {
+
+        var modelName = item.textContent;
+
+        if(modelName.toUpperCase().indexOf(enteredValue) < 0) {
+            item.style.display = "none";
+        } else {
+            item.style.display = "block";
+        }
+
+    });
+
+});

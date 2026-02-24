@@ -68,7 +68,7 @@
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   margin-top: 30px;
 }
@@ -99,6 +99,40 @@
 .price {
   font-weight: bold;
   margin: 10px 0;
+}
+ .model_search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+.model{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  
+}
+.model input{
+  padding: 10px;
+  width: 100%;
+  max-width: 900px;   /* Ithu dhan size control */
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 15px;    /* Text perusa */
+  position: relative;
+}
+
+.model i{
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 footer {
   background: black;
@@ -179,5 +213,9 @@ footer {
 
   .contact-info {
     width: 100%;
+  }
+  .product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   }
   }
