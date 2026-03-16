@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MOBI GADGETS</title>
+  <link rel="stylesheet" href="apple_skin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 <style>
@@ -12,11 +16,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial,Helvetica, sans-serif;
+  font-family: "Poppins", "Lato", Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #f8f8f8;
+  background: #f6f7fb;
+  color: #121317;
 }
 
 /* Navbar */
@@ -24,22 +29,72 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
-  background: #383737;
+  background: rgba(20, 21, 26, 0.92);
   color: #fff;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 .navbar-links a{
   text-decoration: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.navbar-links a:hover{
+  color: #ffffff;
 }
 .navbar-menu-icon {
     display: none;
+}
+
+.logo{
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.cart-icon-btn{
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-icon-btn:hover{
+  background: rgba(255, 255, 255, 0.12);
+}
+.cart-count-badge{
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(20, 21, 26, 0.92);
 }
 /*side_navbar*/
 .side_navbar{
@@ -53,6 +108,7 @@ body {
     border-radius: 10px;
     color: white;
     transition: 0.4s;
+    z-index: 60;
 }
 .side_navbar-link{
     margin-bottom: 20px;
@@ -70,13 +126,32 @@ body {
   height: 550px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 28px 18px 10px;
+}
+
+.phone-preview{
+  width: min(420px, 100%);
+  height: auto;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(16, 24, 40, 0.14);
+}
 
 .product-preview {
   display: flex;
   align-items: flex-start;
   gap: 50px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(18, 19, 23, 0.06);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 16px 50px rgba(16, 24, 40, 0.08);
 }
 
 
@@ -88,6 +163,101 @@ body {
 .brand {
   font-size: 14px;
   color: gray;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.product-title{
+  font-size: 30px;
+  line-height: 1.15;
+  margin-top: 6px;
+  color: #0b0c10;
+}
+.product-subtitle{
+  margin-top: 10px;
+  color: rgba(18, 19, 23, 0.72);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.model-row{
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(18, 19, 23, 0.06);
+}
+.model-label{
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(18, 19, 23, 0.86);
+  margin-bottom: 8px;
+}
+.model-input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(18, 19, 23, 0.14);
+  background: rgba(246, 247, 251, 0.7);
+  outline: none;
+  font-size: 14px;
+  color: #121317;
+}
+.model-input:focus{
+  border-color: rgba(17, 19, 24, 0.7);
+  box-shadow: 0 0 0 4px rgba(17, 19, 24, 0.10);
+  background: #fff;
+}
+.model-hint{
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(18, 19, 23, 0.6);
+  line-height: 1.4;
+}
+
+.price-row{
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.price{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #111318;
+  color: #fff;
+}
+.price-currency{
+  opacity: 0.85;
+  font-weight: 700;
+}
+.price-amount{
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+.trust-badges{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(18, 19, 23, 0.06);
+  color: rgba(18, 19, 23, 0.78);
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .choose-btn {
@@ -97,6 +267,7 @@ body {
   border: none;
   margin: 15px 0;
   cursor: pointer;
+  border-radius: 12px;
 }
 
 .options {
@@ -125,7 +296,7 @@ body {
 /* Bottom Designs */
 .designs {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 8px;
   margin-top: 15px;
 }
@@ -136,12 +307,280 @@ body {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
+  background: #fff;
 }
 
 .designs img:hover {
   border: 2px solid black;
 }
+.add-to-cart-btn {
+  background: #db923f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 70%;
+  border-radius: 10px;
 
+}
+
+.buy-now-btn{
+  margin-top: 10px;
+  background: #111318;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 70%;
+  border-radius: 10px;
+}
+.add-to-cart-btn:hover{
+  filter: brightness(0.95);
+}
+.buy-now-btn:hover{
+  filter: brightness(1.08);
+}
+
+.section h4{
+  margin-top: 10px;
+  color: rgba(18, 19, 23, 0.9);
+}
+.right h3{
+  margin-top: 18px;
+}
+.right ul{
+  margin-top: 10px;
+  padding-left: 18px;
+  color: rgba(18, 19, 23, 0.8);
+  line-height: 1.7;
+}
+
+/* Cart Drawer */
+.cart-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 70;
+}
+.cart-overlay.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+.cart-drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(420px, 92vw);
+  background: #ffffff;
+  transform: translateX(105%);
+  transition: transform 220ms ease;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(18, 19, 23, 0.08);
+}
+.cart-drawer.is-open{
+  transform: translateX(0);
+}
+.cart-header{
+  padding: 18px 18px 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(18, 19, 23, 0.06);
+}
+.cart-header h3{
+  font-size: 18px;
+  line-height: 1.2;
+}
+.cart-subtitle{
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(18, 19, 23, 0.65);
+}
+.icon-btn{
+  border: 1px solid rgba(18, 19, 23, 0.12);
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn:hover{
+  background: rgba(18, 19, 23, 0.04);
+}
+.icon-btn.danger{
+  border-color: rgba(255, 59, 48, 0.3);
+  color: #ff3b30;
+}
+.cart-items{
+  padding: 14px 18px;
+  overflow: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cart-item{
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18, 19, 23, 0.06);
+  background: rgba(246, 247, 251, 0.7);
+}
+.cart-item-img{
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #fff;
+}
+.cart-item-title{
+  font-weight: 700;
+  color: #0b0c10;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.cart-item-meta{
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(18, 19, 23, 0.6);
+}
+.cart-item-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cart-item-bottom{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.qty-control{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(18, 19, 23, 0.08);
+}
+.qty-control button{
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  border: 1px solid rgba(18, 19, 23, 0.12);
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.qty-control button:hover{
+  background: rgba(18, 19, 23, 0.04);
+}
+.qty-control span{
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: rgba(18, 19, 23, 0.9);
+}
+.cart-item-price{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  white-space: nowrap;
+}
+.muted{
+  font-size: 12px;
+  color: rgba(18, 19, 23, 0.55);
+}
+.strong{
+  font-weight: 800;
+  color: #0b0c10;
+}
+.cart-footer{
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(18, 19, 23, 0.06);
+  background: #fff;
+}
+.cart-totals{
+  border: 1px solid rgba(18, 19, 23, 0.06);
+  border-radius: 16px;
+  background: rgba(246, 247, 251, 0.7);
+  padding: 12px;
+}
+.totals-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 2px;
+  color: rgba(18, 19, 23, 0.8);
+}
+.totals-strong{
+  font-weight: 800;
+  color: #0b0c10;
+}
+.cart-note{
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(18, 19, 23, 0.55);
+}
+.checkout-btn{
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #111318;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+.checkout-btn:hover{
+  filter: brightness(1.08);
+}
+.cart-empty{
+  padding: 18px 12px;
+  text-align: center;
+}
+.cart-empty-title{
+  font-weight: 800;
+  color: #0b0c10;
+}
+.cart-empty-subtitle{
+  margin-top: 6px;
+  color: rgba(18, 19, 23, 0.65);
+  font-size: 13px;
+}
+.secondary-btn{
+  margin-top: 14px;
+  border: 1px solid rgba(18, 19, 23, 0.12);
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.secondary-btn:hover{
+  background: rgba(18, 19, 23, 0.04);
+}
  
 
 
@@ -197,6 +636,7 @@ footer {
 @media screen and (max-width: 600px) {
     .navbar-menu-icon {
         display: block;
+        cursor: pointer;
     }
     .navbar-links{
         display: none;
@@ -212,22 +652,34 @@ footer {
   .left {
     width: 100%;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
 
   .phone-preview {
-    width: 550px;
+    width: min(520px, 100%);
   }
 
   /* details below image */
   .right {
     width: 100%;
-    padding: 0 15px;
+    padding: 0 4px;
   }
 
   /* designs center align */
   .designs {
     justify-content: center;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .add-to-cart-btn,
+  .buy-now-btn{
+    width: 100%;
+  }
+  .product-preview{
+    padding: 16px;
+    gap: 18px;
+  }
+  .product-title{
+    font-size: 24px;
   }
       .footer-container {
     display: flex;
@@ -256,7 +708,10 @@ footer {
   }
 }
 
+
 </style>
+<body>
+
 <body>
 
 <header class="navbar">
@@ -269,6 +724,11 @@ footer {
 <a href="#">Contact</a>
 
   </div>
+
+  <button class="cart-icon-btn" type="button" aria-label="Open cart" onclick="openCart()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="cart-count-badge" id="cartCount" aria-label="Cart item count">0</span>
+  </button>
 
   <div class="navbar-menu-icon" onclick="shownavbar()">
     <i class="fa-solid fa-bars"></i>
@@ -295,11 +755,9 @@ footer {
 
   <!-- RIGHT : Product Details -->
   <div class="right">
-    <p class="brand">Apple</p>
-    <h1>iPhone 17 Pro Max Skins & Wraps</h1>
-
-    <button class="choose-btn">Choose your Design Below</button>
-
+    <p class="brand">Redmi</p>
+    <h1 class="product-title">Abstract Vision — Premium Phone Skin</h1>
+    <p class="product-subtitle">This preview is for reference. Your order will be cut precisely for the model you select.</p>
 
     <div class="section">
       <h4>Color : Abstract Vision</h4>
@@ -313,9 +771,85 @@ footer {
         <img src="17-pro-max-d1.webp" onclick="changeImage(this)">
       </div>
     </div>
+    <div class="model-row">
+      <label class="model-label" for="modelInput">Confirm your model</label>
+      <input
+        class="model-input"
+        id="modelInput"
+        type="text"
+        placeholder="Example: Redmi Note 12"
+        autocomplete="off"
+        inputmode="text"
+      />
+      <p class="model-hint">Your cart item will include this model, so we cut it correctly.</p>
+    </div>
+
+    <div class="price-row">
+      <div class="price">
+        <span class="price-currency">₹</span>
+        <span class="price-amount" id="productPrice">499</span>
+      </div>
+      <div class="trust-badges">
+        <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Bubble-free finish</span>
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Scratch resistant</span>
+        <span class="badge"><i class="fa-solid fa-scissors"></i> Precision cut</span>
+      </div>
+    </div>
+
+    <button class="choose-btn">Choose your Design Below</button>
+
+
+    
+    <div class="actions-row">
+      <button class="add-to-cart-btn" type="button" onclick="addCurrentToCart()">Add to Cart</button>
+      <button class="buy-now-btn" type="button" onclick="buyNow()">Buy Now</button>
+    </div>
+    <div class="details-section">
+      <h3>Product Details</h3>
+      <ul>
+        <li>Material: High-quality vinyl with a matte finish.</li>
+        <li>Compatibility: Custom cut to fit specific Phone models.</li>
+        <li>Design: Unique and vibrant abstract patterns that enhance the look of your phone.</li>
+        <li>Protection: Provides a layer of protection against scratches and minor impacts.</li>
+        <li>Easy Application: Self-adhesive backing for easy application and removal without residue.</li>
+      </ul>
+    </div>
   </div>
 </div>
 </div>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <div>
+      <h3>Your Cart</h3>
+      <p class="cart-subtitle" id="cartSubtitle">0 items</p>
+    </div>
+    <button class="icon-btn" type="button" aria-label="Close cart" onclick="closeCart()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <!-- Filled by JS -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-totals">
+      <div class="totals-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="totals-row totals-strong">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+    </div>
+    <button class="checkout-btn" type="button" onclick="checkout()">Checkout</button>
+  </div>
+</aside>
 
 
 
@@ -369,9 +903,8 @@ footer {
   <p class="copyright">© 2026 MOBI GADGETS. All rights reserved.</p>
 </footer>
 
-
 <script>
-    // selecting side_navbar
+// selecting side_navbar
 var sidenavbar = document.querySelector(".side_navbar");
 
 function shownavbar() {
@@ -387,8 +920,234 @@ function changeImage(img) {
   document.getElementById("mainPhone").src = img.src;
 }
 
+// -----------------------------
+// Cart (localStorage + drawer)
+// -----------------------------
+const CART_STORAGE_KEY = "mobi_cart_v1";
+const MODEL_STORAGE_KEY = "mobi_model_v1";
+
+function getCartEls() {
+  return {
+    overlay: document.getElementById("cartOverlay"),
+    drawer: document.getElementById("cartDrawer"),
+    items: document.getElementById("cartItems"),
+    count: document.getElementById("cartCount"),
+    subtitle: document.getElementById("cartSubtitle"),
+    subtotal: document.getElementById("cartSubtotal"),
+    total: document.getElementById("cartTotal"),
+  };
+}
+
+function safeParseJSON(str, fallback) {
+  try {
+    return JSON.parse(str);
+  } catch (_) {
+    return fallback;
+  }
+}
+
+function loadCart() {
+  const raw = localStorage.getItem(CART_STORAGE_KEY);
+  const parsed = safeParseJSON(raw, []);
+  return Array.isArray(parsed) ? parsed : [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+}
+
+function formatINR(amount) {
+  const n = Number(amount) || 0;
+  return `₹${n.toFixed(0)}`;
+}
+
+function cartItemCount(cart) {
+  return cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+}
+
+function cartSubtotal(cart) {
+  return cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+}
+
+function openCart() {
+  const { overlay, drawer } = getCartEls();
+  overlay?.classList.add("is-open");
+  drawer?.classList.add("is-open");
+  overlay?.setAttribute("aria-hidden", "false");
+  drawer?.setAttribute("aria-hidden", "false");
+}
+
+function closeCart() {
+  const { overlay, drawer } = getCartEls();
+  overlay?.classList.remove("is-open");
+  drawer?.classList.remove("is-open");
+  overlay?.setAttribute("aria-hidden", "true");
+  drawer?.setAttribute("aria-hidden", "true");
+}
+
+function getCurrentProduct() {
+  const img = document.getElementById("mainPhone");
+  const priceEl = document.getElementById("productPrice");
+  const titleEl = document.querySelector(".product-title");
+  const brandEl = document.querySelector(".brand");
+  const modelInput = document.getElementById("modelInput");
+
+  const title = (titleEl?.textContent || "Phone Skin").trim();
+  const brand = (brandEl?.textContent || "Brand").trim();
+  const price = Number(priceEl?.textContent) || 0;
+  const image = img?.getAttribute("src") || "";
+  const model = (modelInput?.value || "").trim();
+
+  // Use image as a "variant" identifier for design selection.
+  // Include model so same design can be ordered for different models.
+  const id = `${brand}:${title}:${image}:${model || "NO_MODEL"}`;
+
+  return { id, title, brand, price, image, model };
+}
+
+function requireModelOrWarn() {
+  const modelInput = document.getElementById("modelInput");
+  const model = (modelInput?.value || "").trim();
+  if (model.length < 3) {
+    alert("Please enter your phone model (example: Redmi Note 12) before adding to cart.");
+    modelInput?.focus();
+    return null;
+  }
+  localStorage.setItem(MODEL_STORAGE_KEY, model);
+  return model;
+}
+
+function addCurrentToCart() {
+  const confirmedModel = requireModelOrWarn();
+  if (!confirmedModel) return;
+
+  const product = getCurrentProduct();
+  if (!product.id) return;
+
+  const cart = loadCart();
+  const existing = cart.find((x) => x.id === product.id);
+  if (existing) {
+    existing.qty = (Number(existing.qty) || 0) + 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  saveCart(cart);
+  // Clear model input after successful add (as requested)
+  const modelInput = document.getElementById("modelInput");
+  if (modelInput) {
+    modelInput.value = "";
+    modelInput.blur();
+  }
+  renderCart();
+  openCart();
+}
+
+function updateQty(id, delta) {
+  const cart = loadCart();
+  const item = cart.find((x) => x.id === id);
+  if (!item) return;
+
+  item.qty = (Number(item.qty) || 0) + delta;
+  if (item.qty <= 0) {
+    const next = cart.filter((x) => x.id !== id);
+    saveCart(next);
+  } else {
+    saveCart(cart);
+  }
+  renderCart();
+}
+
+function removeItem(id) {
+  const cart = loadCart().filter((x) => x.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+
+function renderCart() {
+  const cart = loadCart();
+  const { items, count, subtitle, subtotal, total } = getCartEls();
+  const itemCount = cartItemCount(cart);
+  const sub = cartSubtotal(cart);
+
+  if (count) count.textContent = String(itemCount);
+  if (subtitle) subtitle.textContent = `${itemCount} item${itemCount === 1 ? "" : "s"}`;
+  if (subtotal) subtotal.textContent = formatINR(sub);
+  if (total) total.textContent = formatINR(sub);
+
+  if (!items) return;
+  if (cart.length === 0) {
+    items.innerHTML = `
+      <div class="cart-empty">
+        <p class="cart-empty-title">Your cart is empty</p>
+        <p class="cart-empty-subtitle">Add a skin design to get started.</p>
+        <button class="secondary-btn" type="button" onclick="closeCart()">Continue shopping</button>
+      </div>
+    `;
+    return;
+  }
+
+  items.innerHTML = cart
+    .map((item) => {
+      const line = (Number(item.price) || 0) * (Number(item.qty) || 0);
+      return `
+        <div class="cart-item">
+          <img class="cart-item-img" src="${item.image}" alt="${item.title}">
+          <div class="cart-item-info">
+            <div class="cart-item-top">
+              <div>
+                <p class="cart-item-title">${item.title}</p>
+                <p class="cart-item-meta">${item.brand}${item.model ? ` • ${item.model}` : ""}</p>
+              </div>
+              <button class="icon-btn danger" type="button" aria-label="Remove item" onclick="removeItem('${item.id.replace(/'/g, "\\'")}')">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <div class="cart-item-bottom">
+              <div class="qty-control" role="group" aria-label="Quantity controls">
+                <button type="button" onclick="updateQty('${item.id.replace(/'/g, "\\'")}', -1)" aria-label="Decrease quantity">−</button>
+                <span>${Number(item.qty) || 0}</span>
+                <button type="button" onclick="updateQty('${item.id.replace(/'/g, "\\'")}', 1)" aria-label="Increase quantity">+</button>
+              </div>
+              <div class="cart-item-price">
+                <span class="muted">${formatINR(item.price)} each</span>
+                <span class="strong">${formatINR(line)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function buyNow() {
+  addCurrentToCart();
+}
+
+function checkout() {
+  // For now: simple UX feedback. Integrate with your checkout page later.
+  openCart();
+  alert("Checkout coming soon. For now, contact MOBI GADGETS on WhatsApp to place your order.");
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeCart();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const modelInput = document.getElementById("modelInput");
+
+  // clear saved model
+  localStorage.removeItem(MODEL_STORAGE_KEY);
+
+  if(modelInput){
+    modelInput.value = "";
+  }
+
+  renderCart();
+});
 
 </script>
 </body>
 </html>
- 
