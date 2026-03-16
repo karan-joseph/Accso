@@ -6,6 +6,9 @@
   <title>MOBI GADGETS</title>
   <link rel="stylesheet" href="apple_skin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -20,6 +23,11 @@
 <a href="#">Contact</a>
 
   </div>
+
+  <button class="cart-icon-btn" type="button" aria-label="Open cart" onclick="openCart()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="cart-count-badge" id="cartCount" aria-label="Cart item count">0</span>
+  </button>
 
   <div class="navbar-menu-icon" onclick="shownavbar()">
     <i class="fa-solid fa-bars"></i>
@@ -47,7 +55,33 @@
   <!-- RIGHT : Product Details -->
   <div class="right">
     <p class="brand">Apple</p>
-    <h1>iPhone 17 Pro Max Skins & Wraps</h1>
+    <h1 class="product-title">Abstract Vision — Premium iPhone Skin</h1>
+    <p class="product-subtitle">This preview is for reference. Your order will be cut precisely for the model you select.</p>
+
+    <div class="model-row">
+      <label class="model-label" for="modelInput">Confirm your model</label>
+      <input
+        class="model-input"
+        id="modelInput"
+        type="text"
+        placeholder="Example: iPhone 15 Pro Max"
+        autocomplete="off"
+        inputmode="text"
+      />
+      <p class="model-hint">Your cart item will include this model, so we cut it correctly.</p>
+    </div>
+
+    <div class="price-row">
+      <div class="price">
+        <span class="price-currency">₹</span>
+        <span class="price-amount" id="productPrice">499</span>
+      </div>
+      <div class="trust-badges">
+        <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Bubble-free finish</span>
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Scratch resistant</span>
+        <span class="badge"><i class="fa-solid fa-scissors"></i> Precision cut</span>
+      </div>
+    </div>
 
     <button class="choose-btn">Choose your Design Below</button>
 
@@ -64,9 +98,56 @@
         <img src="17-pro-max-d1.webp" onclick="changeImage(this)">
       </div>
     </div>
+    <div>
+      <button class="add-to-cart-btn" type="button" onclick="addCurrentToCart()">Add to Cart</button>
+      <button class="buy-now-btn" type="button" onclick="buyNow()">Buy Now</button>
+    </div>
+    <div>
+      <h3>Product Details</h3>
+      <ul>
+        <li>Material: High-quality vinyl with a matte finish.</li>
+        <li>Compatibility: Custom cut to fit specific Phone models.</li>
+        <li>Design: Unique and vibrant abstract patterns that enhance the look of your phone.</li>
+        <li>Protection: Provides a layer of protection against scratches and minor impacts.</li>
+        <li>Easy Application: Self-adhesive backing for easy application and removal without residue.</li>
+      </ul>
+    </div>
   </div>
 </div>
 </div>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <div>
+      <h3>Your Cart</h3>
+      <p class="cart-subtitle" id="cartSubtitle">0 items</p>
+    </div>
+    <button class="icon-btn" type="button" aria-label="Close cart" onclick="closeCart()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <!-- Filled by JS -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-totals">
+      <div class="totals-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="totals-row totals-strong">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+    </div>
+    <button class="checkout-btn" type="button" onclick="checkout()">Checkout</button>
+  </div>
+</aside>
 
 
 
