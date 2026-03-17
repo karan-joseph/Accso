@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MOBI GADGETS</title>
-  <link rel="stylesheet" href="home/mobi.css" />
+  <title>Mobile Skins</title>
+  <link rel="stylesheet" href="home/mobi.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
+
 <body>
 
 <header class="navbar">
@@ -23,6 +23,10 @@
   <div class="navbar-menu-icon" onclick="shownavbar()">
     <i class="fa-solid fa-bars"></i>
   </div>
+  <button class="cart-icon-btn" type="button" aria-label="Open cart" onclick="openCart()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="cart-count-badge" id="cartCount" aria-label="Cart item count">0</span>
+    </button>
 </nav>
 </header>
   <!--side navbar-->
@@ -35,6 +39,42 @@
     <p class="side_navbar-link"><a href="#">Contact</a></p>
   </div>
   </nav>
+  <!-- Cart Overlay -->
+<div id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <div>
+      <h3>Your Cart</h3>
+      <p class="cart-subtitle" id="cartSubtitle">0 items</p>
+    </div>
+    <button class="icon-btn" type="button" aria-label="Close cart" onclick="closeCart()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <!-- Filled by JS -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-totals">
+      <div class="totals-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="totals-row totals-strong">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+    </div>
+    <button class="checkout-btn" type="button" onclick="checkout()">Checkout</button>
+  </div>
+</aside>
+
 
 
 <section class="hero">
