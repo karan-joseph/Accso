@@ -222,9 +222,12 @@ function buyNow() {
 }
 
 function checkout() {
-  // For now: simple UX feedback. Integrate with your checkout page later.
-  openCart();
-  alert("Checkout coming soon. For now, contact MOBI GADGETS on WhatsApp to place your order.");
+  const cart = loadCart();
+  if (!cart.length) {
+    alert("Your cart is empty. Please add at least one item before checkout.");
+    return;
+  }
+  window.location.href = "../checkout.html";
 }
 
 document.addEventListener("keydown", (e) => {

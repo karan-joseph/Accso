@@ -219,12 +219,6 @@ function buyNow() {
   addCurrentToCart();
 }
 
-function checkout() {
-  // For now: simple UX feedback. Integrate with your checkout page later.
-  openCart();
-  alert("Checkout coming soon. For now, contact MOBI GADGETS on WhatsApp to place your order.");
-}
-
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeCart();
 });

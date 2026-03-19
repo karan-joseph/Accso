@@ -669,7 +669,7 @@ footer {
       </div>
       <p class="cart-note">Shipping and taxes calculated at checkout.</p>
     </div>
-    <button class="checkout-btn" type="button" onclick="checkout()">Checkout</button>
+   <a href="../../../checkout.html"><button class="checkout-btn" type="button" onclick="checkout()">Checkout</button></a>
   </div>
 </aside>
 
@@ -1051,11 +1051,6 @@ function buyNow() {
   addCurrentToCart();
 }
 
-function checkout() {
-  // For now: simple UX feedback. Integrate with your checkout page later.
-  openCart();
-  alert("Checkout coming soon. For now, contact MOBI GADGETS on WhatsApp to place your order.");
-}
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeCart();
