@@ -718,10 +718,10 @@ footer {
   <div class="logo">MOBI GADGETS</div>
   <nav class="nav-right">
   <div class="navbar-links">
-  <a href="../../../index.html">Home |</a>
-<a href="../../../phone/mobi-phone.html">Mobile Skins |</a>
-<a href="../../../laptop/mobi-laptop.html">Laptop Skins |</a>
-<a href="../../../tablet/mobi-tab.html">Tablet Skins | </a>
+  <a href="../../index.html">Home |</a>
+<a href="../../phone/mobi-phone.html">Mobile Skins |</a>
+<a href="../../laptop/mobi-laptop.html">Laptop Skins |</a>
+<a href="../../tablet/mobi-tab.html">Tablet Skins</a>
 
   </div>
 
@@ -739,10 +739,10 @@ footer {
   <nav>
   <div class="side_navbar">
     <p style="text-align: right;" onclick="closenavbar()"><i class="fa-solid fa-xmark"></i></p>
-    <p class="side_navbar-link"><a href="../../../index.html">Home</a></p>
-    <p class="side_navbar-link"><a href="../../../phone/mobi-phone.html">Mobile Skins</a></p>
-    <p class="side_navbar-link"><a href="../../../laptop/mobi-laptop.html">Laptop Skins</a></p>
-    <p class="side_navbar-link"><a href="../../../tablet/mobi-tab.html">Tablet Skins</a></p>
+    <p class="side_navbar-link"><a href="../../index.html">Home</a></p>
+    <p class="side_navbar-link"><a href="../../phone/mobi-phone.html">Mobile Skins</a></p>
+    <p class="side_navbar-link"><a href="../../laptop/mobi-laptop.html">Laptop Skins</a></p>
+    <p class="side_navbar-link"><a href="../../tablet/mobi-tab.html">Tablet Skins</a></p>
 
   </div>
   </nav>
@@ -755,8 +755,8 @@ footer {
 
   <!-- RIGHT : Product Details -->
   <div class="right">
-    <p class="brand">Apple</p>
-    <h1 class="product-title">Abstract Vision — Premium Phone Skin</h1>
+    <p class="brand">Ipad</p>
+    <h1 class="product-title">Abstract Vision — Premium Ipad Skin</h1>
     <p class="product-subtitle">This preview is for reference. Your order will be cut precisely for the model you select.</p>
 
     <div class="section">
@@ -777,7 +777,7 @@ footer {
         class="model-input"
         id="modelInput"
         type="text"
-        placeholder="Example: iPhone 17 Pro Max"
+        placeholder="Example: Ipad Pro 12.9 inch (5th Gen)"
         autocomplete="off"
         inputmode="text"
       />
@@ -847,7 +847,7 @@ footer {
       </div>
       <p class="cart-note">Shipping and taxes calculated at checkout.</p>
     </div>
-    <a href="../../../checkout.html"><button class="checkout-btn" type="button" onclick="checkout()">Checkout</button></a>
+   <a href="../../checkout.html"><button class="checkout-btn" type="button" onclick="checkout()">Checkout</button></a>
   </div>
 </aside>
 
@@ -860,7 +860,7 @@ footer {
     <div class="footer-logo">
       <h2>MOBI GADGETS</h2>
       <!-- image use panna na -->
-      <img src="../../../home/logo.jpeg" alt="logo" width="150">
+      <img src="../../home/logo.jpeg" alt="logo" width="150">
     </div>
 
     <div class="contact-info">
@@ -1009,7 +1009,7 @@ function requireModelOrWarn() {
   const modelInput = document.getElementById("modelInput");
   const model = (modelInput?.value || "").trim();
   if (model.length < 3) {
-    alert("Please enter your phone model (example: iPhone 17 Pro Max) before adding to cart.");
+    alert("Please enter your phone model (example: Ipad Pro 12.9 inch (5th Gen)) before adding to cart.");
     modelInput?.focus();
     return null;
   }
@@ -1123,7 +1123,6 @@ function renderCart() {
 function buyNow() {
   addCurrentToCart();
 }
-
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeCart();
