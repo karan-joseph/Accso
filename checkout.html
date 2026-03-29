@@ -15,7 +15,12 @@
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
       gap: 32px;
     }
-
+    .checkout-card{
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
     .checkout-title {
       font-size: 1.5rem;
       margin-bottom: 4px;
@@ -65,27 +70,76 @@
     }
 
     .payment-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
-    .payment-chip {
+    .payment-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #ffffff;
+      overflow: hidden;
+      margin-bottom: 10px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .payment-item.active {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.15);
+    }
+
+    .payment-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      background: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #111827;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.15s ease;
+    }
+
+    .payment-header:hover {
+      background: #f9fafb;
+    }
+
+    .payment-title {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      font-size: 0.85rem;
-      background: #f9fafb;
-      cursor: pointer;
-      user-select: none;
+      gap: 8px;
     }
 
-    .payment-chip input {
-      margin: 0;
+    .payment-main-icon {
+      width: 22px;
+      text-align: center;
+      color: #4f46e5;
+      font-size: 1rem;
+    }
+
+    .payment-arrow {
+      font-size: 0.9rem;
+      color: #6b7280;
+      transition: transform 0.2s ease;
+    }
+
+    .payment-item.active .payment-arrow {
+      transform: rotate(180deg);
+    }
+
+    .payment-panel {
+      display: none;
+      border-top: 1px solid #f1f5f9;
+      padding: 10px 12px;
+      background: #f9fafb;
+      font-size: 0.9rem;
+    }
+
+    .payment-item.active .payment-panel {
+      display: block;
     }
 
     .checkout-help {
@@ -176,16 +230,7 @@
       margin-top: 6px;
     }
 
-    .payment-extra {
-      margin-top: 8px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: #f9fafb;
-      border: 1px dashed #e5e7eb;
-      font-size: 0.85rem;
-    }
-
-    .payment-extra h4 {
+    .payment-panel h4 {
       margin: 0 0 8px;
       font-size: 0.9rem;
       font-weight: 600;
@@ -199,19 +244,51 @@
       margin-bottom: 8px;
     }
 
-    .chip-option {
-      padding: 6px 10px;
-      border-radius: 999px;
+    .app-option {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
       border: 1px solid #e5e7eb;
       background: #ffffff;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .chip-option input {
+    .app-option input {
       margin: 0;
+      accent-color: #4f46e5;
+    }
+
+    .app-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .app-logo {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      border-radius: 6px;
+      flex-shrink: 0;
+      background: #ffffff;
+    }
+
+    .logo-fallback {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e5e7eb;
+      color: #374151;
+      font-size: 0.7rem;
+      font-weight: 700;
     }
 
     .mini-input-row {
@@ -270,17 +347,31 @@
     }
 
     .secondary-link {
-      display: inline-flex;
+    display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      color: #4b5563;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
       cursor: pointer;
-      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
     }
 
-    .secondary-link i {
-      font-size: 0.8rem;
+   .secondary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+    }
+
+    .secondary-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
     }
 
     .error-text {
@@ -400,33 +491,92 @@
         <div class="checkout-form-group">
           <label>Payment option *</label>
           <div class="payment-options">
-            <label class="payment-chip">
-              <input type="radio" name="paymentMethod" value="cash" required />
-              Cash
-            </label>
-            <label class="payment-chip">
-              <input type="radio" name="paymentMethod" value="upi" />
-              UPI
-            </label>
-            <label class="payment-chip">
-              <input type="radio" name="paymentMethod" value="online" />
-              Card / Online
-            </label>
-            <label class="payment-chip">
-              <input type="radio" name="paymentMethod" value="other" />
-              Other
-            </label>
-          </div>
+            <input type="hidden" id="selectedPaymentMethod" name="paymentMethod" />
 
-          <div id="paymentDetails" class="payment-extra" style="display:none;">
-            <!-- Filled dynamically based on payment method -->
+            <div class="payment-item" data-method="cash">
+              <button type="button" class="payment-header">
+                <span class="payment-title">
+                  <i class="fa-solid fa-money-bill-wave payment-main-icon"></i>
+                  Cash
+                </span>
+                <i class="fa-solid fa-chevron-down payment-arrow"></i>
+              </button>
+              <div class="payment-panel">
+                <h4>Cash payment</h4>
+                <p class="checkout-help">Cash received at counter.</p>
+              </div>
+            </div>
+
+            <div class="payment-item" data-method="upi">
+              <button type="button" class="payment-header">
+                <span class="payment-title">
+                  <i class="fa-solid fa-mobile-screen-button payment-main-icon"></i>
+                  UPI
+                </span>
+                <i class="fa-solid fa-chevron-down payment-arrow"></i>
+              </button>
+              <div class="payment-panel">
+                <h4>UPI payment details</h4>
+                <div class="payment-extra-row">
+                  <label class="app-option">
+                    <input type="radio" name="upiApp" value="gpay" checked />
+                    <span class="app-brand">
+                      <img class="app-logo" src="public/payment/gpay.png" alt="Google Pay logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                      <span class="logo-fallback" style="display:none;">GP</span>
+                      Google Pay
+                    </span>
+                  </label>
+                  <label class="app-option">
+                    <input type="radio" name="upiApp" value="phonepe" />
+                    <span class="app-brand">
+                      <img class="app-logo" src="public/payment/phonepe.png" alt="PhonePe logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                      <span class="logo-fallback" style="display:none;">PP</span>
+                      PhonePe
+                    </span>
+                  </label>
+                  <label class="app-option">
+                    <input type="radio" name="upiApp" value="paytm" />
+                    <span class="app-brand">
+                      <img class="app-logo" src="public/payment/paytm.png" alt="Paytm logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                      <span class="logo-fallback" style="display:none;">PT</span>
+                      Paytm
+                    </span>
+                  </label>
+                  <label class="app-option">
+                    <input type="radio" name="upiApp" value="bhim" />
+                    <span class="app-brand">
+                      <img class="app-logo" src="public/payment/bhim.png" alt="BHIM logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+                      <span class="logo-fallback" style="display:none;">BH</span>
+                      BHIM
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-item" data-method="online">
+              <button type="button" class="payment-header">
+                <span class="payment-title">
+                  <i class="fa-regular fa-credit-card payment-main-icon"></i>
+                  Card / Online
+                </span>
+                <i class="fa-solid fa-chevron-down payment-arrow"></i>
+              </button>
+              <div class="payment-panel">
+                <h4>Card / online payment details</h4>
+                <div class="mini-input-row">
+                  <input type="text" id="cardNumber" placeholder="Card number (mock)" maxlength="19" />
+                </div>
+                <div class="mini-input-row">
+                  <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" />
+                  <input type="text" id="cardCvv" placeholder="CVV" maxlength="4" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="checkout-form-group">
-          <label for="notes">Order notes (optional)</label>
-          <textarea id="notes" name="notes" placeholder="Any custom instructions, colour preference, reference name, etc."></textarea>
-        </div>
+
 
         <p id="formError" class="error-text" style="display:none;"></p>
 
@@ -689,68 +839,42 @@ function normalizePhone(value) {
     .replace(/^0+/, "");
 }
 
-function updatePaymentUI(method) {
-  const container = document.getElementById("paymentDetails");
+function updatePaymentButtonLabel(method) {
   const labelEl = document.getElementById("placeOrderLabel");
-  if (!container) return;
+  if (!labelEl) return;
+  if (method === "upi") labelEl.textContent = "Confirm UPI payment & complete order";
+  else if (method === "online") labelEl.textContent = "Confirm card payment & complete order";
+  else if (method === "cash") labelEl.textContent = "Confirm cash received & complete order";
+  else labelEl.textContent = "Pay now & complete order";
+}
 
-  if (method === "upi") {
-    container.style.display = "block";
-    container.innerHTML = `
-      <h4>UPI payment details</h4>
-      <div class="payment-extra-row">
-        <label class="chip-option">
-          <input type="radio" name="upiApp" value="gpay" checked />
-          Google Pay
-        </label>
-        <label class="chip-option">
-          <input type="radio" name="upiApp" value="phonepe" />
-          PhonePe
-        </label>
-        <label class="chip-option">
-          <input type="radio" name="upiApp" value="paytm" />
-          Paytm
-        </label>
-        <label class="chip-option">
-          <input type="radio" name="upiApp" value="bhim" />
-          BHIM UPI
-        </label>
-      </div>
-      <p class="checkout-help">
-        Ask customer to scan your QR / pay from the selected app. After payment is done, click "Pay now & complete order".
-      </p>
-    `;
-    if (labelEl) labelEl.textContent = "Confirm UPI payment & complete order";
-  } else if (method === "online") {
-    container.style.display = "block";
-    container.innerHTML = `
-      <h4>Card / online payment details</h4>
-      <div class="mini-input-row">
-        <input type="text" id="cardNumber" placeholder="Card number (mock)" maxlength="19" />
-      </div>
-      <div class="mini-input-row">
-        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" />
-        <input type="text" id="cardCvv" placeholder="CVV" maxlength="4" />
-      </div>
-      <p class="checkout-help">
-        Use this only as a front-desk helper. Run the actual charge on your payment terminal or gateway.
-      </p>
-    `;
-    if (labelEl) labelEl.textContent = "Confirm card payment & complete order";
-  } else if (method === "cash") {
-    container.style.display = "block";
-    container.innerHTML = `
-      <h4>Cash payment</h4>
-      <p class="checkout-help">
-        Collect cash from the customer, then click "Pay now & complete order" to save this order against the phone number.
-      </p>
-    `;
-    if (labelEl) labelEl.textContent = "Confirm cash received & complete order";
-  } else {
-    container.style.display = "none";
-    container.innerHTML = "";
-    if (labelEl) labelEl.textContent = "Pay now & complete order";
-  }
+function initPaymentAccordion() {
+  const items = document.querySelectorAll(".payment-item");
+  const methodInput = document.getElementById("selectedPaymentMethod");
+  if (!items.length || !methodInput) return;
+
+  items.forEach((item) => {
+    const header = item.querySelector(".payment-header");
+    header?.addEventListener("click", () => {
+      const method = item.getAttribute("data-method") || "";
+      const isCurrentlyOpen = item.classList.contains("active");
+
+      // Always close all sections first to enforce accordion behavior.
+      items.forEach((i) => i.classList.remove("active"));
+
+      if (isCurrentlyOpen) {
+        // Toggle close: clicking open item closes it and clears selection.
+        methodInput.value = "";
+        updatePaymentButtonLabel("");
+        return;
+      }
+
+      // Open clicked section and store selected payment method.
+      item.classList.add("active");
+      methodInput.value = method;
+      updatePaymentButtonLabel(method);
+    });
+  });
 }
 
 function handleCheckoutSubmit(event) {
@@ -784,10 +908,7 @@ function handleCheckoutSubmit(event) {
   const phone = normalizePhone(phoneRaw);
   const address = (addressInput?.value || "").trim();
   const notes = (notesInput?.value || "").trim();
-  const paymentMethodInput = form.querySelector(
-    "input[name='paymentMethod']:checked"
-  );
-  const paymentMethod = paymentMethodInput?.value || "";
+  const paymentMethod = (document.getElementById("selectedPaymentMethod")?.value || "").trim();
 
   if (!name || !phone || !address || !paymentMethod) {
     if (errorEl) {
@@ -872,13 +993,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleCheckoutSubmit);
   }
 
-  // Watch payment method changes to show dynamic options
-  const methodInputs = document.querySelectorAll("input[name='paymentMethod']");
-  methodInputs.forEach((input) => {
-    input.addEventListener("change", (e) => {
-      updatePaymentUI(e.target.value);
-    });
-  });
+  initPaymentAccordion();
 });
 
 
