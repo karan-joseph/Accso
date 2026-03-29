@@ -43,6 +43,8 @@
       font-weight: 500;
       margin-bottom: 6px;
       color: #374151;
+      text-decoration: underline;
+      font-weight: bolder;
     }
 
     .checkout-form-group input,
@@ -437,6 +439,15 @@
         grid-template-columns: minmax(0, 1fr);
         margin-top: 80px;
       }
+
+      /* Show order summary first, checkout form next on mobile */
+      .checkout-page > aside {
+        order: 1;
+      }
+
+      .checkout-page > section {
+        order: 2;
+      }
     }
   </style>
 </head>
@@ -469,7 +480,7 @@
   <main class="checkout-page">
     <section class="checkout-card">
       <h1 class="checkout-title">Checkout</h1>
-      <p class="checkout-subtitle">Enter customer details. Orders are saved by phone number so you can quickly find repeat customers.</p>
+      <p class="checkout-subtitle">Enter customer details. This helps ensure items are delivered correctly to the right address.</p>
 
       <form id="checkoutForm" novalidate>
         <div class="checkout-form-group">
